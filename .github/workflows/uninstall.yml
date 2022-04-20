@@ -40,5 +40,5 @@ jobs:
         id: install
 
       # Deletes AWS INFRA
-      - name: INSTALL EKS CLUSTER
+      - name: DELETE AWS INFRA
         run: eksctl delete cluster --name realblocks --region us-east-2
