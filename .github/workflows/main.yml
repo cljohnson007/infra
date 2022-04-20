@@ -34,7 +34,7 @@ jobs:
 
       - name: eksctl-cmd
         uses: robatwave/github-action-eksctl@0.1.2
-        eksctl create cluster --name realblocks --region us-east-2 --fargate
+        run:  eksctl create cluster --name realblocks --region us-east-2 --fargate
 
 
       # Runs a single command using the runners shell
