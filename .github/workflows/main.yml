@@ -32,16 +32,16 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
       
-
+      # Installs the EKS Command-Line Tool
       - name: INSTALL EKSCTL
         uses: moia-oss/setup-eksctl@v1
         with:
           version: '0.34.0' # default is latest
         id: install
 
-      # Runs a single command using the runners shell
-      #- name: INSTALL EKS CLUSTER
-      #  run: eksctl create cluster --name realblocks --region us-east-2 --fargate 
+      #  Creates a VPC, Internet Gateway, Subnets, Security Groups, EKS Cluster in Fargate
+      - name: INSTALL EKS CLUSTER
+         run: eksctl create cluster --name realblocks --region us-east-2 --fargate 
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
