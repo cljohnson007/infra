@@ -36,7 +36,7 @@ jobs:
       - name: INSTALL EKSCTL
         uses: moia-oss/setup-eksctl@v1
         with:
-          version: '<version>' # default is latest
+          version: 'latest' # default is latest
         id: install
 
       # Runs a single command using the runners shell
