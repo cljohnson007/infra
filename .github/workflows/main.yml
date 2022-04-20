@@ -31,11 +31,13 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
+      
 
-      - name: eksctl-cmd
-        uses: robatwave/github-action-eksctl@0.1.2
-        run:  eksctl create cluster --name realblocks --region us-east-2 --fargate
-
+      - name: INSTALL EKSCTL
+        uses: moia-oss/setup-eksctl@v1
+        with:
+          version: '<version>' # default is latest
+        id: install
 
       # Runs a single command using the runners shell
       #- name: INSTALL EKS CLUSTER
