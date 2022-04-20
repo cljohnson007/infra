@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: nginx
+  template:
+    metadata:
+      labels:
+        bb: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    bb: nginx
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30000
